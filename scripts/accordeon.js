@@ -4,8 +4,25 @@ const accordeon = () => {
     chItems.forEach(item => {
         const chButton = item.querySelector('.characteristics__title')
         const chContent = item.querySelector('.characteristics__description')
+        chButton.classList.remove('active')
+        chContent.classList.remove('open')
+        chContent.style.height = ''
 
-        chButton.addEventListener('click', () => {
+        chButton.addEventListener('click', (evt) => {
+
+            const target = evt.target
+            console.log(target)
+            chItems.forEach((item) => {
+                const chButton = item.querySelector('.characteristics__title')
+                const chContent = item.querySelector('.characteristics__description')
+                console.log(item)
+                if (chButton !== target) {
+                    chButton.classList.remove('active')
+                    chContent.classList.remove('open')
+                    chContent.style.height = ''
+                }
+            })
+
             if (chContent.classList.contains('open')) {
                 chContent.style.height = ''
             } else {
