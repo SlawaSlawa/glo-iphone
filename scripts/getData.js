@@ -1,4 +1,5 @@
 const getData = () => {
+    const URL = 'https://glo-iphone-default-rtdb.firebaseio.com/db.json'
     const list = document.querySelector('.cross-sell__list ')
     const btn = document.querySelector('.cross-sell__add')
 
@@ -40,7 +41,7 @@ const getData = () => {
     }
 
     const getGoods = () => {
-        fetch('/cross-sell-dbase/dbase.json')
+        fetch(URL)
             .then(response => {
                 if (response.ok) {
                     return response.json()
